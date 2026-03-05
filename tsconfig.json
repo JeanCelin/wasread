@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    "**/*.mts",
+    "app/(api)/lib/database.js",
+    "app/(api)/(routes)/books/route.ts"
   ],
   "exclude": ["node_modules"]
 }
