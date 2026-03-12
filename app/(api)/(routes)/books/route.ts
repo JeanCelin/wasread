@@ -1,16 +1,14 @@
 export const runtime = "nodejs";
 
-import connectDB from "../../lib/database";
 import Book from "../../models/Book";
 import { NextResponse } from "next/server";
 
 
-// import { syncDatabase } from "../../lib/sync";
-// await syncDatabase(); // cria tabela se não existir
+
 
 export async function GET() {
   try {
-    await connectDB.authenticate();
+
 
     const books = await Book.findAll();
     if (books.length <= 0)
@@ -27,7 +25,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    await connectDB.authenticate();
+
     const body = await request.json();
     const {
       title,

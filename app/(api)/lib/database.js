@@ -8,12 +8,13 @@ if (!DB_NAME || !DB_USERNAME || !DB_PASSWORD) {
   throw new Error("Variáveis de ambiente não setadas");
 }
 
-const connectDB = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
   host: "localhost",
   dialect: "mysql",
-  logging: false, // evita poluição no console
+  logging: false, 
 });
 
- connectDB.sync({ alter: true });
+await sequelize.authenticate();
+sequelize.sync({ alter: true });
 
-export default connectDB;
+export default sequelize;

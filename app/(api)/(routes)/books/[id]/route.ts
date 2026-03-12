@@ -1,4 +1,3 @@
-import connectDB from "@/app/(api)/lib/database";
 import { NextResponse } from "next/server";
 import Book from "@/app/(api)/models/Book";
 import { UniqueConstraintError } from "sequelize";
@@ -8,7 +7,7 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    await connectDB.authenticate();
+  
     const { id } = await params;
     const body = await request.json();
 
@@ -61,7 +60,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> },
 ) {
   try {
-    await connectDB.authenticate();
+  
     const { id } = await params;
 
     if (!id)

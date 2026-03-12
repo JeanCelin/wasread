@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 
 import sequelize from "../lib/database";
+
 const Book = sequelize.define("Book", {
   title: {
     type: DataTypes.STRING,
